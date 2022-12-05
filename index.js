@@ -8,9 +8,9 @@ const fs = require("fs");
 const https = require("https");
 const flash = require("express-flash");
 const bcrypt = require("bcrypt");
-const LocalStrategu = require("passport-local").Strategy;
-const FacebookStrategy = require("passport-facebook").Strategy;
-const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
+const LocalStrategy = require("passport-local").Strategy;
+// const FacebookStrategy = require("passport-facebook").Strategy;
+// const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 const passport = require("passport");
 require("dotenv").config();
 
@@ -20,21 +20,97 @@ const port = 8080;
 // Express middleware set up
 const app = express();
 app.use(express.urlencoded({ extended: false }));
-app.use(flash());
+// app.use(flash());
 
 //Hnadlebars set up
 app.engine("handlebars", engine());
 app.set("view engine", "handlebars");
+app.use(express.static("public"));
 
-//Session
-app.use(
-  session({
-    secret: process.env.SESSION_SECRET_KEY,
-    resave: false,
-    saveUninitialized: false,
-  })
-);
+// //Session
+// app.use(
+//   session({
+//     secret: process.env.SESSION_SECRET_KEY,
+//     resave: false,
+//     saveUninitialized: false,
+//   })
+// );
 
-//Passport
-app.use(passport.initialize());
-app.use(passport.session());
+// //Passport
+// app.use(passport.initialize());
+// app.use(passport.session());
+
+// //Check if the user is authenticated
+// //
+
+// //Sign Up
+// passport.use(
+//   "local-signup",
+//   new LocalStrategy(
+//     { usernameField: "email" },
+//     async (email, password, done) => {
+//       const user = await knex("users").where({ email }).first();
+//       if (user) {
+//         return done(null, false, {
+//           message: "This email is already taken.",
+//         });
+//       }
+
+//       const hash = await bcrypt.hash(password, 10);
+//       let newUser = {
+//         email,
+//         password: hash,
+//       };
+
+//       const id = await knex("users").inert(newUser).returning("id");
+//       newUser.id = id[0]["id"];
+//       return done(null, newUser);
+//     }
+//   )
+// );
+
+// //Login
+// passport.use(
+//   "local-login",
+//   new LocalStrategy({ usernameField: "email" }, async (email, password, done) => {
+//     const user = await knex("users").where({ email }).first();
+
+//     if (!user) {
+//       return done(null, false, { message: "Wrong email or password" });
+//     }
+
+//     const result = await bcrypt.compare(password, user.password);
+//     if (result) {
+//       return done(null, user);
+//     } else {
+//       return done(null, false);
+//     }
+//   })
+// );
+
+// //Serialize
+// passport.serializeUser((user, done) => {
+//   done(null, user.id);
+// });
+// //Deserialize
+// passport.deserializeUser(async (id, done) => {
+//   const user = await knex("users").where({ id }).first();
+//   return user ? done(null, true) : done(null, false);
+// });
+
+//Render
+app.get("/", (req, res) => {
+  res.render("home", {
+    title: "Home",
+  });
+});
+
+app.get("/products", (req, res) => {
+  res.render("products", {
+    subtitle: "Men's Shoes",
+  });
+});
+
+app.listen(port, () => {
+  console.log("Listening to ", port);
+});
