@@ -12,6 +12,9 @@ const LocalStrategy = require("passport-local").Strategy;
 // const FacebookStrategy = require("passport-facebook").Strategy;
 // const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 const passport = require("passport");
+const userRoutes = require("./router/userRoutes");
+const controller = require("./controller/userController");
+var bodyParser = require("body-parser");
 require("dotenv").config();
 
 //port
@@ -19,10 +22,12 @@ const port = 8080;
 
 // Express middleware set up
 const app = express();
-app.use(express.urlencoded({ extended: false }));
 // app.use(flash());
+app.use(bodyParser.json());
+// create application/x-www-form-urlencoded parser
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
-//Hnadlebars set up
+//Handlebars set up
 app.engine("handlebars", engine());
 app.set("view engine", "handlebars");
 app.use(express.static("public"));
@@ -97,19 +102,31 @@ app.use(express.static("public"));
 //   const user = await knex("users").where({ id }).first();
 //   return user ? done(null, true) : done(null, false);
 // });
-
-//Render
 app.get("/", (req, res) => {
   res.render("home", {
     title: "Home",
+    style: "styles.css",
   });
 });
+app.use("/api/users", userRoutes);
 
-app.get("/products", (req, res) => {
-  res.render("products", {
-    subtitle: "Men's Shoes",
+app.get("/login", (req, res) => {
+  res.render("login", {
+    title: "Login",
+    style: "login.css",
   });
 });
+app.post("/login", urlencodedParser, controller.userLogin);
+
+
+
+// const productService = new ProductService(knex);
+// app.get("/product", (req, res) => {
+//   productService.list((data) => {
+//     res.send(data);
+//     console.log(data);
+//   });
+// });
 
 app.listen(port, () => {
   console.log("Listening to ", port);
