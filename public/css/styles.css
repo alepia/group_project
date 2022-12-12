@@ -1,0 +1,192 @@
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-center {
+  display: flex;
+  justify-content: center;
+}
+
+.dropdown-menu {
+  border: none;
+  border-bottom: 1px solid rgb(245, 245, 245);
+  background-color: rgb(255, 255, 255);
+  margin-left: 0;
+}
+
+.navbar {
+  background-color: rgb(255, 255, 255) !important;
+}
+
+.card {
+  margin: 10px;
+  border: none;
+  width: 20rem !important;
+  background-color: transparent;
+}
+
+.card-text {
+  font-size: 12px;
+}
+
+.horizontal {
+  padding: 25px;
+}
+
+.btn {
+  border: none !important;
+}
+
+.nav-text {
+  font-size: 15px;
+}
+
+.position {
+  background-color: white;
+  border: 1px solid gray;
+}
+
+form {
+  padding: 10px;
+}
+
+.submit {
+  margin-left: 33%;
+}
+
+.nav-link {
+  padding-left: 10px;
+  text-align: center;
+}
+
+.logo {
+  margin-right: 10%;
+  margin-left: 65px;
+}
+
+.truck,
+.twitter {
+  margin-right: 10px;
+}
+
+.bg-image {
+  background-image: url("https://www.newbalance.com.hk/dw/image/v2/AASX_PRD/on/demandware.static/-/Library-Sites-APAC/default/dw0ca14903/homepage_banner_Dec/U9060BCG_713.jpg?sw=991&sfrm=jpg");
+  background-repeat: no-repeat;
+  height: 80vh;
+  background-size: 100% 80vh;
+}
+
+.banner-cont {
+  height: 80vh;
+}
+
+.brand-cont {
+  position: relative !important;
+  top: 250 !important;
+  color: aliceblue;
+}
+
+.separator {
+  width: 32%;
+  border: 1px solid red;
+}
+
+.btn-banner {
+  background-color: red !important;
+  position: relative;
+  left: 300;
+}
+
+.hero-cont {
+  display: flex;
+  padding: 0;
+}
+
+.as-left {
+  height: 50vh;
+  width: 50%;
+  justify-content: flex-start;
+  background-color: f6f6f6; /* f6f6f6 */
+  background-image: url("product_thumbnail.webp");
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+.as-right {
+  height: 50vh;
+  width: 50%;
+  justify-content: flex-end;
+  background-color: f6f6f6; /* f6f6f6 */
+  background-image: url("product_thumbnail.webp");
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+.as-left-b {
+  /* height: 25vh; */
+  padding: 30px;
+  width: 50%;
+  justify-content: flex-start;
+  background-color: f6f6f6; /* f6f6f6 */
+}
+
+.as-right-b {
+  /* height: 25vh; */
+  padding: 30px;
+  width: 50%;
+  justify-content: flex-start;
+  background-color: f6f6f6; /* f6f6f6 */
+}
+
+.as-b-cont {
+  text-align: center;
+  padding: 10px;
+}
+
+.btn-as-b {
+  margin-top: 10px;
+}
+
+.secondary-nav {
+  background-color: gray !important;
+  color: white;
+  font-size: 15px;
+}
+
+.subtitle {
+  margin-bottom: 0;
+  margin-left: 15px;
+}
+
+.filter {
+  margin-right: 15px;
+}
+
+.thumbnail-img {
+  height: 200px;
+}
+
+
+.thumbnail-container {
+  margin-top: 10px;
+  width: 90%;
+  /* margin-left: 8%; */
+}
+
+.float-child img {
+  height: 300px;
+}
+
+.float-child {
+  margin-top: 10px;
+  float: left;
+  /* width: 25%; */
+  margin-left: 5%;
+}
+
+.text-container {
+  text-align: center;
+  margin-top: 10px;
+}

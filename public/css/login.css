@@ -1,0 +1,27 @@
+.fa-users{
+	border-radius:100%;
+	border: 2px solid #f0ad4e;
+	padding:10px;
+}
+
+
+.container h2{
+font-family: 'Times New Roman',
+Times, serif;
+background-color: aliceblue;
+font-weight: bold;
+
+}
+
+nav {
+font-family: 'Times New Roman', Times, serif;
+
+}
+
+
+body,nav {
+background: #42275a;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #1d161c, #120a19);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #f9f7f9, #f6f5f8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
